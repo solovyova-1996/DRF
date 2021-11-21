@@ -5,6 +5,7 @@ import axios from "axios";
 import UserList from "./components/User";
 import Menu from "./components/Menu";
 import Footer from "./components/Footer";
+
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -22,7 +23,6 @@ class App extends React.Component {
                 )
             }
         ).catch(error => console.log(error))
-
     }
 
     render() {
