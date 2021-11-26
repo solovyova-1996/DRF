@@ -13,8 +13,8 @@ class Project(models.Model):
 
 
 class Todo(models.Model):
-    project = models.OneToOneField(Project, on_delete=models.CASCADE)
-    user = models.ForeignKey(Users, models.PROTECT)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, null=True, on_delete=models.SET_NULL)
     text_todo = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
