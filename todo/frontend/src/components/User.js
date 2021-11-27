@@ -17,6 +17,7 @@ const UserList = ({users}) => {
         <Container>
             <Row>
                 <Col className='col-lg-6 col-sm-12'>
+                     <h3 className='text-center mt-3'>Пользователи</h3>
                     <Table striped bordered hover size='sm' className='mt-4'>
                         <thead>
                         <tr>

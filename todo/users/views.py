@@ -9,4 +9,4 @@ from users.serializers import UsersModelSerializer
 class UserCustomViewSet(ListModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet):
     queryset = Users.objects.all()
     serializer_class = UsersModelSerializer
-    renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
+    # renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
