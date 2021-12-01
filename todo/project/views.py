@@ -1,5 +1,5 @@
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
+# from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
 from rest_framework.viewsets import ModelViewSet
 
 from project.filters import ProjectFilter, TodoFilter

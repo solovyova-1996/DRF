@@ -37,9 +37,7 @@ const TodoList = ({todo}) => {
                     </Table>
                 </Col>
             </Row>
-
         </Container>
     )
 }
-
 export default TodoList;
