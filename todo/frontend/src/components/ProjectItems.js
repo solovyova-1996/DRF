@@ -1,7 +1,7 @@
 import React from "react";
-import {Container,  Row, Col} from "react-bootstrap";
+import {Container, Row, Col} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 const ProjectItem = ({project, users, todo}) => {
     const todolist = []
@@ -19,8 +19,6 @@ const ProjectItem = ({project, users, todo}) => {
                 return users.find((user) => user.id == userId).username + ', '
             })}</li>
             <li><b>Todo:</b> {todolist.map((todo) => todo + ', ')}</li>
-
-
         </ol>
 
 
@@ -29,8 +27,6 @@ const ProjectItem = ({project, users, todo}) => {
 const ProjectItems = ({projects, users, todo}) => {
     let {id} = useParams();
     let filtered_project = projects.filter((project) => project.id == id)
-
-
     return (
         <Container>
             <Row>
@@ -38,12 +34,9 @@ const ProjectItems = ({projects, users, todo}) => {
                 mt-3'>
                     <p> {filtered_project.map((project) => <ProjectItem project={project} users={users}
                                                                         todo={todo}/>)}</p>
-
                 </Col>
             </Row>
-
         </Container>
     )
 }
-
 export default ProjectItems;

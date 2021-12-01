@@ -6,14 +6,13 @@ import {Link} from "react-router-dom";
 const ProjectItem = ({project}) => {
     return (
         <tr>
-            <td><Link to ={`projects/${project.id}`}> {project.nameProject} </Link></td>
+            <td><Link to={`projects/${project.id}`}> {project.nameProject} </Link></td>
             <td>{project.linkRepo}</td>
             <td>{project.users}</td>
         </tr>
     )
 }
 const ProjectList = ({projects}) => {
-
     return (
         <Container>
             <Row>
@@ -25,7 +24,6 @@ const ProjectList = ({projects}) => {
                             <th>Name Project</th>
                             <th>Link</th>
                             <th>Users</th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -34,9 +32,7 @@ const ProjectList = ({projects}) => {
                     </Table>
                 </Col>
             </Row>
-
         </Container>
     )
 }
-
 export default ProjectList;

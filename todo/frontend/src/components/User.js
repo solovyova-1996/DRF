@@ -37,5 +37,4 @@ const UserList = ({users}) => {
         </Container>
     )
 }
-
 export default UserList;
