@@ -61,9 +61,10 @@ class App extends React.Component {
         }).catch(error => alert('Неверный логин или пароль'))
     }
 
-    get_headers() {
+    get_headers(version) {
         let headers = {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json; version=${version}'
         }
         if (this.is_authenticated()) {
             headers['Authorization'] = 'Jwt-token ' + this.state.token
