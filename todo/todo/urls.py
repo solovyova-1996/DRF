@@ -1,5 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from rest_framework.permissions import AllowAny
 from rest_framework.routers import DefaultRouter
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
@@ -11,6 +14,18 @@ router.register('users', UserCustomViewSet, basename='users')
 router.register('project', ProjectModelViewSet, basename='project')
 router.register('todo', TodoModelViewSet, basename='todo')
 
+schema_view = get_schema_view(
+    openapi.Info(
+        title='Todo',
+        default_version='',
+        description='Documentation for the Todo project',
+        contact=openapi.Contact(email='shatdar@yandex.ru'),
+        license=openapi.License(name='Todo License'),
+    ),
+    public=True,
+    permission_classes=(AllowAny,),
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
@@ -18,4 +33,6 @@ urlpatterns = [
     # path('api-token-auth/', views.obtain_auth_token),
     path('api-token-auth/', obtain_jwt_token),
     path('api-token-refresh/', refresh_jwt_token),
+    path('swagger/', schema_view.with_ui('swagger')),
+    path('swagger/<str:format>/', schema_view.without_ui()),
 ]
