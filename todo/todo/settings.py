@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'drf_yasg',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -171,4 +172,7 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
     'JWT_AUTH_HEADER_PREFIX': 'Jwt-token',
 
+}
+GRAPHENE = {
+    'SCHEMA': 'todo.schema.schema'
 }
