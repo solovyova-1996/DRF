@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.views.decorators.csrf import csrf_exempt
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from graphene_django.views import GraphQLView
 from rest_framework.permissions import AllowAny
 from rest_framework.routers import DefaultRouter
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
@@ -35,4 +37,5 @@ urlpatterns = [
     path('api-token-refresh/', refresh_jwt_token),
     path('swagger/', schema_view.with_ui('swagger')),
     path('swagger/<str:format>/', schema_view.without_ui()),
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
