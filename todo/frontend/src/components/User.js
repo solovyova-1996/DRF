@@ -2,17 +2,18 @@ import React from "react";
 import {Container, Table, Row, Col} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const UserItem = ({user}) => {
+const UserItem = ({user,deleteUsers}) => {
     return (
         <tr>
             <td>{user.username}</td>
             <td>{user.firstName}</td>
             <td>{user.lastName}</td>
             <td>{user.email}</td>
+             <td><button onClick={()=>deleteUsers(user.id)} className='btn-danger' type="button">Удалить</button></td>
         </tr>
     )
 }
-const UserList = ({users}) => {
+const UserList = ({users,deleteUsers}) => {
     return (
         <Container>
             <Row>
@@ -28,7 +29,7 @@ const UserList = ({users}) => {
                         </tr>
                         </thead>
                         <tbody>
-                        {users.map((user) => <UserItem user={user}/>)}
+                        {users.map((user) => <UserItem user={user} deleteUsers={deleteUsers}/>)}
                         </tbody>
                     </Table>
                 </Col>
