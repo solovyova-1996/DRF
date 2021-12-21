@@ -30,10 +30,10 @@ class TodoModelViewSet(ModelViewSet):
     # pagination_class = TodoLimitOffsetPagination
     filterset_class = TodoFilter
 
-    def perform_destroy(self, instance):
-        obj = self.get_object()
-        if obj.is_active:
-            obj.is_active = False
-        else:
-            obj.is_active = True
-        obj.save()
+    # def perform_destroy(self, instance):
+    #     obj = self.get_object()
+    #     if obj.is_active:
+    #         obj.is_active = False
+    #     else:
+    #         obj.is_active = True
+    #     obj.save()

@@ -1,8 +1,9 @@
 import React from "react";
 import {Container, Table, Row, Col} from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {Link} from "react-router-dom";
 
-const TodoItem = ({todoitem}) => {
+const TodoItem = ({todoitem,deleteTodo}) => {
     return (
         <tr>
             <td>{todoitem.textTodo}</td>
@@ -11,10 +12,11 @@ const TodoItem = ({todoitem}) => {
             <td>{todoitem.isActive}</td>
             <td>{todoitem.project}</td>
             <td>{todoitem.user}</td>
+            <td><button onClick={()=>deleteTodo(todoitem.id)} className='btn-danger' type="button">Удалить</button></td>
         </tr>
     )
 }
-const TodoList = ({todo}) => {
+const TodoList = ({todo,deleteTodo}) => {
     return (
         <Container>
             <Row>
@@ -29,12 +31,15 @@ const TodoList = ({todo}) => {
                             <th>Active</th>
                             <th>Project</th>
                             <th>User</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        {todo.map((todoitem) => <TodoItem todoitem={todoitem}/>)}
+                        {todo.map((todoitem) => <TodoItem todoitem={todoitem} deleteTodo={deleteTodo}/>)}
                         </tbody>
                     </Table>
+                    <div style={{marginBottom: '100px'}}><Link className="btn-success text-decoration-none p-1" to="/todo/create">Создать</Link></div>
+
                 </Col>
             </Row>
         </Container>
